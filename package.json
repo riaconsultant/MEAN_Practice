@@ -1,0 +1,26 @@
+{
+  "name": "sampleapp",
+  "version": "1.0.0",
+  "description": "this is a node js sample application cover the basic tutorials exercises.",
+  "main": "fileUpload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sample",
+    "application",
+    "nodejs",
+    "simple",
+    "application",
+    "nodejs",
+    "exercise"
+  ],
+  "author": "Manoj Chaurasiya",
+  "license": "MIT",
+  "dependencies": {
+    "formidable": "^1.1.1",
+    "mongodb": "^2.2.31",
+    "mysql": "^2.14.1",
+    "nodemailer": "^4.0.1"
+  }
+}
