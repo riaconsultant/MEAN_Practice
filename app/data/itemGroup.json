@@ -1,0 +1,30 @@
+[
+  {
+"itemGroup": "FRU",
+"itemGroupDescription": "fruits",
+"itemCode": null,
+"itemDescription": null,
+"price": null,
+"quantity": null,
+"deliveryDate": null,
+"totalAmount": null,
+"supplierCode": null,
+"supplierName": null,
+"buyerCode": null,
+"uom": null
+},
+  {
+"itemGroup": "VEG",
+"itemGroupDescription": "Veg",
+"itemCode": null,
+"itemDescription": null,
+"price": null,
+"quantity": null,
+"deliveryDate": null,
+"totalAmount": null,
+"supplierCode": null,
+"supplierName": null,
+"buyerCode": null,
+"uom": null
+}
+]

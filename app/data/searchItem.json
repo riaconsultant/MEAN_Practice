@@ -1,0 +1,44 @@
+[
+    {
+  "itemGroup": "1",
+  "itemGroupDescription": null,
+  "itemCode": "1",
+  "itemDescription": "Red Apple",
+  "price": 13,
+  "quantity": null,
+  "deliveryDate": null,
+  "totalAmount": null,
+  "supplierCode": null,
+  "supplierName": null,
+  "buyerCode": null,
+  "uom": "KG"
+  },
+    {
+  "itemGroup": "FRU",
+  "itemGroupDescription": null,
+  "itemCode": "AS00-FRU-0004",
+  "itemDescription": "",
+  "price": 5.95,
+  "quantity": null,
+  "deliveryDate": null,
+  "totalAmount": null,
+  "supplierCode": null,
+  "supplierName": null,
+  "buyerCode": null,
+  "uom": "KG"
+  },
+    {
+  "itemGroup": "VEG",
+  "itemGroupDescription": null,
+  "itemCode": "AS00-VEG-0005",
+  "itemDescription": "",
+  "price": 2.95,
+  "quantity": null,
+  "deliveryDate": null,
+  "totalAmount": null,
+  "supplierCode": null,
+  "supplierName": null,
+  "buyerCode": null,
+  "uom": "Gram"
+  }
+  ]
