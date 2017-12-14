@@ -18,27 +18,30 @@ router.post('/authenticate',(req,res)=>{
     //User.findOne
 });
 // search companies
-router.get('/api/procurepay/order/searchCompanies',(req,res)=>{
+router.get('/api/procurepay/order/searchCompanies/:id',(req,res)=>{
     res.status(200).json(suppliers);
 });
 // get item group based on company selection
-router.get('/api/procurepay/order/searchItemGroups',(req,res)=>{
+router.get('/api/procurepay/order/searchItemGroups/:id',(req,res)=>{
     res.status(200).json(items);
 });
-router.get('/api/procurepay/order/serachItems',(req,res)=>{
+router.get('/api/procurepay/order/serachItems/:id?',(req,res)=>{
+    // apply query parameter 
+    // http://localhost:8080/api/procurepay/order/searchItems/AS00?ItemGroups=&initial=0&pageSize=10&lower=0&higher=0&search=
+    console.log(req.query);
     res.status(200).json(searchItems);
 });
 // add product
-router.get('/api/procurepay/addProduct',(req,res)=>{
-    res.status(200).json(req.params);
+router.get('/api/procurepay/addProduct/:id',(req,res)=>{
+    res.status(200).json(req.params.id);
 
 });
 // delete product
-router.get('/api/procurepay/deleteProduct',(req,res)=>{
-    res.status(200).json(req);
+router.get('/api/procurepay/deleteProduct/:id',(req,res)=>{
+    res.status(200).json(req.params.id);
 });
 // get order details
-router.get('/api/procurepay/getCartItems',(req,res)=>{
+router.get('/api/procurepay/getCartItems/:id',(req,res)=>{
     res.status(200).json(orders);
 });
 
