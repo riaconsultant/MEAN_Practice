@@ -3,7 +3,8 @@ var morgan = require('morgan');
 var bodyparser = require('body-parser');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
-var router = require('./app/route/approute')
+var router = require('./app/route/approute');
+const societyrouter = require('./app/route/societyroute');
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
@@ -16,6 +17,7 @@ app.use(function(req,res,next){
 });
 
 app.use('/',router);
+app.use('/society',societyrouter);
 
 app.listen(8080,()=>{
     console.log('App listening on port 3000');
