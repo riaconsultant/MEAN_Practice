@@ -1,11 +1,16 @@
 
 const router = require('express').Router();
+
+var jwt = require('jsonwebtoken');
+
 const cars = require('../../app/data/cars.json');
 const User = require('../../app/models/User');
 const items = require('../../app/data/itemGroup.json');
 const searchItems = require('../../app/data/searchItem.json');
 const suppliers = require('../../app/data/supplier.json');
 const orders = require('../../app/data/orderItem.json');
+
+let products=[];
 
 router.get('/',(req,res)=>{
     res.status(200).json({message:'Connected'});
@@ -16,6 +21,15 @@ router.get('/cars',(req,res)=>{
 
 router.post('/authenticate',(req,res)=>{
     //User.findOne
+
+    var token = jwt.sign(req.body,'123456');
+    console.log(token);
+    res.status(200).json({token:token});
+});
+
+router.post('/verify',(req,res)=>{
+    var val = jwt.verify(req.body.token,'123456');
+    res.status(200).json({val:val});
 });
 // search companies
 router.get('/api/procurepay/order/searchCompanies/:id',(req,res)=>{
@@ -32,8 +46,10 @@ router.get('/api/procurepay/order/serachItems/:id?',(req,res)=>{
     res.status(200).json(searchItems);
 });
 // add product
-router.get('/api/procurepay/addProduct/:id',(req,res)=>{
-    res.status(200).json(req.params.id);
+router.post('/api/procurepay/addProduct/:id',(req,res)=>{
+    console.log(req.body);
+    products.push(req.body);
+    res.status(200).json({id:req.params.id,body: req.body});
 
 });
 // delete product
@@ -42,7 +58,7 @@ router.get('/api/procurepay/deleteProduct/:id',(req,res)=>{
 });
 // get order details
 router.get('/api/procurepay/getCartItems/:id',(req,res)=>{
-    res.status(200).json(orders);
+    res.status(200).json(products);
 });
 
 

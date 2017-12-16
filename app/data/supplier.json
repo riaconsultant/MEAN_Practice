@@ -1,6 +1,6 @@
 [
     {
-  "companyCode": "AS00",
+  "companyCode": "AS001",
   "companyName": "Angliss Singapore Pte Ltd",
   "bankCode": null,
   "bankCodeDescription": null,
@@ -9,9 +9,9 @@
   "bankIFSCCode": null,
   "bankCountryName": null,
   "bankCountryCode": null,
-  "address": "232 Pandan Loop Singapore "
+  "address": "232 Pandan Loop Singapore iliuouingn"
   },{
-    "companyCode": "AS00",
+    "companyCode": "AS002",
     "companyName": "Angliss Singapore Pte Ltd",
     "bankCode": null,
     "bankCodeDescription": null,
@@ -20,10 +20,10 @@
     "bankIFSCCode": null,
     "bankCountryName": null,
     "bankCountryCode": null,
-    "address": "232 Pandan Loop Singapore "
+    "address": "232 Pandan Loop Singapore fdsfsdf"
     },
     {
-        "companyCode": "AS00",
+        "companyCode": "AS003",
         "companyName": "Angliss Singapore Pte Ltd",
         "bankCode": null,
         "bankCodeDescription": null,
@@ -32,6 +32,6 @@
         "bankIFSCCode": null,
         "bankCountryName": null,
         "bankCountryCode": null,
-        "address": "232 Pandan Loop Singapore "
+        "address": "232 Pandan Loop Singapore 123123 "
         }
 ]
