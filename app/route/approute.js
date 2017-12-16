@@ -22,7 +22,7 @@ router.get('/cars',(req,res)=>{
 router.post('/authenticate',(req,res)=>{
     //User.findOne
 
-    var token = jwt.sign(req.body,'123456');
+    var token = jwt.sign(req.body,'123456',{expiresIn:100});
     console.log(token);
     res.status(200).json({token:token});
 });
