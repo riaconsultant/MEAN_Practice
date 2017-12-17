@@ -53,8 +53,9 @@ router.post('/api/procurepay/addProduct/:id',(req,res)=>{
 
 });
 // delete product
-router.get('/api/procurepay/deleteProduct/:id',(req,res)=>{
-    res.status(200).json(req.params.id);
+router.post('/api/procurepay/deleteProduct/:id',(req,res)=>{
+    products.pop();
+    res.status(200).json({id:req.params.id,data:req.body});
 });
 // get order details
 router.get('/api/procurepay/getCartItems/:id',(req,res)=>{
