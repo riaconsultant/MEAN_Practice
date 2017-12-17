@@ -58,11 +58,8 @@ router.get('/api/procurepay/deleteProduct/:id',(req,res)=>{
 });
 // get order details
 router.get('/api/procurepay/getCartItems/:id',(req,res)=>{
+    console.log(req.params.id);
     res.status(200).json(products);
 });
-
-
-
-
 
 module.exports = router;
