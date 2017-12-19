@@ -10,7 +10,7 @@ srouter.get('/logout',(req,res)=>{
 
 });
 srouter.get('/profile/:id',(req,res)=>{
-
+    
 });
 srouter.post('/profile/edit/:id',(req,res)=>{
 

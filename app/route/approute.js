@@ -10,7 +10,15 @@ const searchItems = require('../../app/data/searchItem.json');
 const suppliers = require('../../app/data/supplier.json');
 const orders = require('../../app/data/orderItem.json');
 
+let users= require("../controllers/Users.controller");
+
+let u = new users();
 let products=[];
+
+router.get('/test',(req,res)=>{
+    var d=u.getUsers(req);
+    res.status(200).json(d);
+});
 
 router.get('/',(req,res)=>{
     res.status(200).json({message:'Connected'});
