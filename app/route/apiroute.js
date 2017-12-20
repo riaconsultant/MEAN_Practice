@@ -1,3 +1,14 @@
+const router = require('express').Router();
+
+const jwt = require('jsonwebtoken');
+
+const hello={"text":"hello World"};
+/** Controllers */
+
+const addressController = require('../controllers/Address.controller');
+const cardController = require('../controllers/Card.controller');
+const orderController = require('../controllers/Order.controller');
+const userController = require('../controllers/User.controller');
 router.get('/',(req,res)=>{
     let routeData=[];
     router.stack.forEach(element => {
@@ -19,13 +30,6 @@ router.use('/order',orderController);
 router.use('/card',cardController);
 router.use('/address',addressController);
 
-router.get('/churchs',(req,res)=>{
-    res.status(200).json(churchs);
-});
-
-router.get('/churchs/:id',(req,res)=>{
-    res.status(200).json(churchprofile);
-});
 
 router.get('/donations',(req,res)=>{
     res.status(200).json(donations);
