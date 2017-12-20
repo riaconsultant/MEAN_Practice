@@ -1,5 +1,8 @@
 
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
+let bluebird = require('bluebird');
+
+mongoose.connect("")
 
 var Schema = mongoose.Schema;
 
