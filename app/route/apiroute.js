@@ -37,6 +37,7 @@ router.get('/donations',(req,res)=>{
 
 router.get('/articles',(req,res)=>{
     res.status(200).json(article);
+    
 });
 
 module.exports = router;
