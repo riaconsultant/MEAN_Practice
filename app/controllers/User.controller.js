@@ -1,36 +1,62 @@
 const userRouter = require('express').Router();
-let userModel = require('../models/User.model');
+let UserModel = require('../models/User.model');
+let RoleModel = require('../models/Role.model')
 
 userRouter.get('/',(req,res)=>{
-    res.status(200).json({data:"sa"});
-})
+    UserModel.find({}).then(
+        (result)=>{res.status(200).json(result);},
+        (err)=>{res.status(400).json(err);}
+    )
+    .catch((error)=>{throw error});
+});
 
-userRouter.post('/signupnews',(req,res)=>{
-    res.status(200).json(req.body);
-})
+userRouter.get('/:id',(req,res)=>{
+    UserModel.find({_id:req.params.id}).then(
+        (result)=>{res.status(200).json(result);},
+        (err)=>{res.status(400).json(err);}
+    )
+    .catch((error)=>{throw error});
+});
 
 userRouter.post('/signup',(req,res)=>{
-
-    res.status(200).json(req.body);
+    var usr = new UserModel(req.body);
+    usr.save().then(
+        (result)=>{res.status(200).json(result)},
+        (error)=>{res.status(400).json(error)}
+    )
+    .catch((error)=>{throw error});
 });
 
-userRouter.post('/approve',(req,res)=>{
-
+userRouter.post('/approve/:id',(req,res)=>{
+    UserModel.findByIdAndUpdate({_id:req.params.id},{status:1}).then(
+        (result)=>{;res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
 });
 
-userRouter.post('/reject',(req,res)=>{
-
+userRouter.post('/reject/:id',(req,res)=>{
+    UserModel.findByIdAndUpdate({_id:req.params.id},{status:2}).then(
+        (result)=>{;res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
 });
 
-userRouter.put('/',(req,res)=>{
-
+userRouter.put('/:id',(req,res)=>{
+    UserModel.findByIdAndUpdate({_id:req.params.id},req.body).then(
+        (result)=>{;res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
 });
 
-userRouter.delete('/',(req,res)=>{
-
+userRouter.delete('/:id',(req,res)=>{
+    UserModel.findByIdAndRemove({_id:req.params.id}).then(
+        (result)=>{res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
 });
 
 userRouter.get('/authenticate',(req,res)=>{
+    
     let token={
         "access_token": "00D2100000091qI!AREAQGXlHfn0dgdKwNvyskvh4UWZ3HS3N0PztASJeUQ_pQnKuy9KUvPhc_dP0okRFee3f6O6NPCqucBXnAckAZmpNHfOyhms",
         "instance_url": "https://cs26.salesforce.com",
@@ -46,17 +72,45 @@ userRouter.get('/logout',(req,res)=>{
     
 });
 
-userRouter.get('/users',(req,res)=>{
-    res.status(200).json(users)
+userRouter.get('/role/all',(req,res)=>{
+    RoleModel.find({}).then(
+        (result)=>{res.status(200).json(result);},
+        (err)=>{res.status(400).json(err);}
+    )
+    .catch((error)=>{throw error});
 });
 
-userRouter.get('/users/:id',(req,res)=>{
-    res.status(200).json(userprofile)
+userRouter.get('/role/:id',(req,res)=>{
+    RoleModel.find({_id:req.params.id}).then(
+        (result)=>{res.status(200).json(result);},
+        (err)=>{res.status(400).json(err);}
+    )
+    .catch((error)=>{throw error});
 });
 
-userRouter.get('/roles',(req,res)=>{
-    res.status(200).json(roles);
+userRouter.post('/role',(req,res)=>{
+    var role = new RoleModel(req.body);
+    role.save().then(
+        (result)=>{res.status(200).json(result)},
+        (error)=>{res.status(400).json(error)}
+    )
+    .catch((error)=>{throw error});
 });
+
+userRouter.put('/role/:id',(req,res)=>{
+    RoleModel.findByIdAndUpdate({_id:req.params.id},req.body).then(
+        (result)=>{;res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
+});
+
+userRouter.delete('/role/:id',(req,res)=>{
+    RoleModel.findByIdAndRemove({_id:req.params.id}).then(
+        (result)=>{res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
+});
+
 
 
 module.exports = userRouter;

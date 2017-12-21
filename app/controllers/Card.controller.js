@@ -28,6 +28,14 @@ router.post('/',(req,res)=>{
     .catch((error)=>{throw error});
 });
 
+// make a prefered card
+router.put('/prefer/:id',(req,res)=>{
+    Card.findByIdAndUpdate({_id:req.params.id},{prefered:1}).then(
+        (result)=>{;res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
+});
+
 router.put('/:id',(req,res)=>{
     Card.findByIdAndUpdate({_id:req.params.id},req.body).then(
         (result)=>{;res.status(200).json(result);},
