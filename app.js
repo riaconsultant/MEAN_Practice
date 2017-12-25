@@ -2,6 +2,7 @@ var app = require('express')();
 var morgan = require('morgan');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
+var promise = mongoose.connect('mongodb://localhost/mydb', {useMongoClient: true});
 var router = require('./app/route/approute');
 const societyrouter = require('./app/route/societyroute');
 const apiRoute = require('../app/route/apiroute')
