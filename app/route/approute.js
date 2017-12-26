@@ -1,27 +1,19 @@
 
 const router = require('express').Router();
-
 var jwt = require('jsonwebtoken');
+const cars = require('../data/cars.json');
+const User = require('../models/User.model');
+const items = require('../data/itemGroup.json');
+const searchItems = require('../data/searchItem.json');
+const suppliers = require('../data/supplier.json');
+const orders = require('../data/orderItem.json');
 
-const cars = require('../../app/data/cars.json');
-const User = require('../../app/models/User');
-const items = require('../../app/data/itemGroup.json');
-const searchItems = require('../../app/data/searchItem.json');
-const suppliers = require('../../app/data/supplier.json');
-const orders = require('../../app/data/orderItem.json');
+//let users= require("../controllers/Users.controller");
 
-let users= require("../controllers/Users.controller");
-
-let u = new users();
 let products=[];
 
 router.get('/test',(req,res)=>{
-    var d=u.getUsers(req);
-    res.status(200).json(d);
-});
-
-router.get('/',(req,res)=>{
-    res.status(200).json({message:'Connected'});
+    res.status(200).json({message:'System is Connected'});
 });
 router.get('/cars',(req,res)=>{
     res.status(200).json(cars);

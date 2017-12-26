@@ -13,8 +13,10 @@ router.get('/',(req,res)=>{
     let routeData=[];
     router.stack.forEach(element => {
         let obj={};
-        // obj.path=element.route.path;
-        // obj.method=element.route.stack[0].method;
+        if(element.route){
+            obj.path=element.route.path;
+            obj.method=element.route.stack[0].method;
+        }
         routeData.push(obj);
     });
     //routeData.push(router.stack);

@@ -1,5 +1,13 @@
 const srouter = require('express').Router();
 
+srouter.get('/',(req,res)=>{
+    let data=[];
+    srouter.stack.forEach((obj,index)=>{
+        data.push({path:obj.route.path,method:obj.route.stack[0].method});
+    });
+    res.status(200).json(data);
+});
+
 srouter.get('/hello',(req,res)=>{
     res.status(200).json('hello');
 });
