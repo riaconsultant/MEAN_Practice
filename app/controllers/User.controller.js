@@ -1,6 +1,7 @@
 const userRouter = require('express').Router();
 let UserModel = require('../models/User.model');
-let RoleModel = require('../models/Role.model')
+let RoleModel = require('../models/Role.model');
+let jwt = require('jsonwebtoken');
 
 userRouter.get('/',(req,res)=>{
     UserModel.find({}).then(

@@ -19,15 +19,18 @@
   "author": "Manoj Chaurasiya",
   "license": "MIT",
   "dependencies": {
-    "formidable": "^1.1.1",
-    "mongodb": "^2.2.31",
-    "mysql": "^2.14.1",
-    "nodemailer": "^4.0.1",
-    "express": "latest",
+    "bluebird": "latest",
     "body-parser": "latest",
-    "morgan": "latest",
-    "mongoose": "latest",
+    "compression": "^1.7.1",
+    "dotenv": "^4.0.0",
+    "express": "latest",
+    "formidable": "^1.1.1",
+    "helmet": "^3.9.0",
     "jsonwebtoken": "latest",
-    "bluebird": "latest"
+    "mongodb": "^2.2.31",
+    "mongoose": "latest",
+    "morgan": "latest",
+    "mysql": "^2.14.1",
+    "nodemailer": "^4.0.1"
   }
 }

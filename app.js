@@ -6,6 +6,11 @@ var promise = mongoose.connect('mongodb://localhost/mydb', {useMongoClient: true
 var router = require('./app/route/approute');
 const societyrouter = require('./app/route/societyroute');
 const apiRoute = require('./app/route/apiroute')
+var compression = require('compression');
+var helmet = require('helmet');
+
+app.use(compression());
+app.use(helmet());
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
@@ -18,7 +23,7 @@ app.use(function(req,res,next){
 });
 
 app.get('/',(req,res)=>{
-    res.status(200).json(app._router.stack);
+    res.status(200).json(process.env);
 });
 
 //app.use('/',router);

@@ -4,27 +4,13 @@ const schema = mongoose.Schema;
 mongoose.Promise = bluebird;
 
 var UserSchema = new schema({
-    first_name:String,
-    last_name:String,
+    name:String,
     email:String,
-    status:String,
-    
+    token:String,
+    term:Boolean,
+    status:Boolean,
     last_login:String,
-    gender:String,
-    birthdate:String,
-    home_phone:String,
-    street:String,
-    city:String,
-    state:String,
-    country:String,
-    zip:String,
-    mobile:String,
-    
-    pic_url:String,
-    username:String,
-    password:String,
-    access_token:String,
-    signature:String
+    profile_id:String
 });
 
 module.exports = mongoose.model('User',UserSchema);
