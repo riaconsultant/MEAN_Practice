@@ -8,6 +8,11 @@ const societyrouter = require('./app/route/societyroute');
 const apiRoute = require('./app/route/apiroute')
 var compression = require('compression');
 var helmet = require('helmet');
+const passport = require('passport');
+const authenticate = require('./app/authentication');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(compression());
 app.use(helmet());

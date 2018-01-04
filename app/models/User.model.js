@@ -5,7 +5,9 @@ const schema = mongoose.Schema;
 mongoose.Promise = bluebird;
 
 var UserSchema = new schema({
-    name:String,
+    username:String,
+    first_name:String,
+    last_name:String,
     email:String,
     token:String,
     term:Boolean,

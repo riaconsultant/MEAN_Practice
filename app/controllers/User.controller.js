@@ -2,6 +2,8 @@ const userRouter = require('express').Router();
 let UserModel = require('../models/User.model');
 let RoleModel = require('../models/Role.model');
 let jwt = require('jsonwebtoken');
+let passport = require('passport');
+
 
 userRouter.get('/',(req,res)=>{
     UserModel.find({}).then(
@@ -20,12 +22,16 @@ userRouter.get('/:id',(req,res)=>{
 });
 
 userRouter.post('/signup',(req,res)=>{
-    var usr = new UserModel(req.body);
-    usr.save().then(
-        (result)=>{res.status(200).json(result)},
-        (error)=>{res.status(400).json(error)}
-    )
-    .catch((error)=>{throw error});
+    UserModel.register(new UserModel({username:req.user.username}),
+    req.user.password,(err,user)=>{
+        if(err){
+            res.status(500).json(err);
+        }else{
+            passport.authenticate('local')(req,res,()=>{
+                res.status(200).json({success:true,status:"Registration Successful!"})
+            })
+        }
+    })
 });
 
 userRouter.post('/approve/:id',(req,res)=>{
@@ -56,12 +62,8 @@ userRouter.delete('/:id',(req,res)=>{
     ).catch((error)=>{throw error});
 });
 
-userRouter.get('/authenticate',(req,res)=>{
-    
-    let token={
-        
-    };
-    res.status(200).json(token);
+userRouter.get('/login',passport.authenticate('local'),(req,res)=>{
+    res.status(200).json(res);
 });
 
 userRouter.get('/logout',(req,res)=>{
