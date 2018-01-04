@@ -24,6 +24,7 @@
     "compression": "^1.7.1",
     "dotenv": "^4.0.0",
     "express": "latest",
+    "express-session": "^1.15.6",
     "formidable": "^1.1.1",
     "helmet": "^3.9.0",
     "jsonwebtoken": "latest",
